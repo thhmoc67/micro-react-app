@@ -2,7 +2,7 @@
 sudo: required
 language: node_js
 node_js:
-- node
+- "11.10.1"
 after_success:
 - chmod +x deploy.sh
 - "./deploy.sh"

@@ -28,7 +28,8 @@ fi
 
 # Build the name of the S3 bucket we want to deploy to
 # TODO: Change the prefix of the bucket name to match your bucket's name
-S3_BUCKET="mywebapp-react-$NODE_ENV"
+S3_BUCKET="micro-react-app-demo"
+# S3_BUCKET="mywebapp-react-$NODE_ENV"
 echo "Deploying to the $S3_BUCKET bucket"
 
 # Install the AWS CLI so we can publish to S3

@@ -25,6 +25,12 @@ else
   echo "Not deploying"
   exit
 fi
+# Configure AWS credentials for Elastic Beanstalk
+mkdir -p ~/.aws
+echo '[profile aws-cli]' > ~/.aws/config
+echo "AWS_ACCESS_KEY_ID = $AWS_ACCESS_KEY_ID" >> ~/.aws/config
+echo "AWS_SECRET_ACCESS_KEY = $AWS_SECRET_ACCESS_KEY" >> ~/.aws/config
+echo "AWS_REGION = $AWS_REGION" >> ~/.aws/config
 
 # Build the name of the S3 bucket we want to deploy to
 # TODO: Change the prefix of the bucket name to match your bucket's name
@@ -34,6 +40,8 @@ echo "Deploying to the $S3_BUCKET bucket"
 
 # Install the AWS CLI so we can publish to S3
 pip install awscli --upgrade --user
+
+
 
 # Sync our build folder with our S3 bucket
 # --acl public-read says deploy the files with public read access
